@@ -406,6 +406,29 @@
       align-items: stretch;
     }
 
+    .ai-work-column {
+      display: grid;
+      gap: 18px;
+    }
+
+    .ai-work-photo {
+      overflow: hidden;
+      border: 1px solid rgba(21, 21, 21, 0.16);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .ai-work-photo img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .ai-work-photo .photo-caption {
+      background: rgba(255, 253, 250, 0.94);
+    }
+
     .ai-screen {
       overflow: hidden;
       border: 1px solid rgba(21, 21, 21, 0.16);
@@ -929,37 +952,44 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow">AI work in practice</p>
-            <h2>AIで何をしているのか、画面と成果物で見せます。</h2>
+            <p class="eyebrow">LP production with AI</p>
+            <h2>LP制作風景と、AIで形にしていく過程を見せます。</h2>
           </div>
-          <p class="section-note">ただ「AIを使う」と言うのではなく、会話、プロンプト、生成物、改善の流れまで共有します。</p>
+          <p class="section-note">ただ「AIを使う」と言うのではなく、手元の画面、会話、プロンプト、生成物、改善の流れまで共有します。</p>
         </div>
 
         <div class="ai-proof">
-          <div class="ai-screen reveal" aria-label="AI制作画面のイメージ">
-            <div class="screen-bar">
-              <div class="screen-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <span>Claude / ChatGPT workspace</span>
-            </div>
-            <div class="screen-body">
-              <div class="chat-line user">子ども食堂の次回告知を、初めて来る親子にも安心して伝わる文章にしてください。</div>
-              <div class="chat-line">目的、対象、現場の雰囲気を分けて整理します。まず「無料」「予約」「持ち物」より先に、不安が減る一文を入れましょう。</div>
-              <div class="prompt-grid">
-                <div class="prompt-card">
-                  <strong>プロンプト断片</strong>
-                  <span>対象: 初参加の親子。トーン: あたたかいが押しつけない。必ず現場写真から伝わる空気を入れる。</span>
-                </div>
-                <div class="prompt-card">
-                  <strong>生成物</strong>
-                  <span>SNS投稿文、チラシ見出し、LINE案内文、予約フォームの説明文をまとめて作成。</span>
-                </div>
-                <div class="prompt-card">
-                  <strong>画像ラフ</strong>
-                  <span>活動写真をもとに、背景、余白、見出し位置を決めて店頭POPの方向性を作る。</span>
-                </div>
-                <div class="prompt-card">
-                  <strong>改善メモ</strong>
-                  <span>「誰に届くか」「現場で使えるか」「次の行動が明確か」を参加者同士で確認。</span>
+          <div class="ai-work-column">
+            <figure class="ai-work-photo reveal">
+              <img src="assets/ai-laptop.jpg" alt="ノートPCでAIと会話しながらLPを制作している手元">
+              <figcaption class="photo-caption">LPの見出し、文章、構成、コードをAIに投げ、画面を見せ合いながらその場で修正していきます。</figcaption>
+            </figure>
+
+            <div class="ai-screen reveal" aria-label="AI制作画面のイメージ">
+              <div class="screen-bar">
+                <div class="screen-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <span>Claude / ChatGPT workspace</span>
+              </div>
+              <div class="screen-body">
+                <div class="chat-line user">子ども食堂の次回告知LPを、初めて来る親子にも安心して伝わる構成にしてください。</div>
+                <div class="chat-line">ファーストビュー、活動写真、参加条件、CTAを分けて設計します。まず「誰に来てほしいか」を強く出しましょう。</div>
+                <div class="prompt-grid">
+                  <div class="prompt-card">
+                    <strong>プロンプト断片</strong>
+                    <span>対象: 行動する地域プレイヤー。目的: オープンチャット参加。条件: 受け身の人は自然に外す。</span>
+                  </div>
+                  <div class="prompt-card">
+                    <strong>LP制作</strong>
+                    <span>見出し、セクション構成、CTA、参加条件、信頼パートをHTMLに落とし込む。</span>
+                  </div>
+                  <div class="prompt-card">
+                    <strong>画像ラフ</strong>
+                    <span>活動写真をもとに、背景、余白、見出し位置を決めて店頭POPやLPの方向性を作る。</span>
+                  </div>
+                  <div class="prompt-card">
+                    <strong>改善メモ</strong>
+                    <span>「誰に届くか」「現場で使えるか」「次の行動が明確か」を参加者同士で確認。</span>
+                  </div>
                 </div>
               </div>
             </div>
