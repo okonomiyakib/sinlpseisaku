@@ -399,6 +399,162 @@
       background-image: url("assets/project-talk.jpg");
     }
 
+    .ai-proof {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .ai-screen {
+      overflow: hidden;
+      border: 1px solid rgba(21, 21, 21, 0.16);
+      border-radius: var(--radius);
+      background: #10100f;
+      color: #fffaf3;
+      box-shadow: var(--shadow);
+    }
+
+    .screen-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 46px;
+      padding: 0 16px;
+      border-bottom: 1px solid rgba(255, 250, 243, 0.12);
+      color: rgba(255, 250, 243, 0.78);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .screen-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .screen-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 250, 243, 0.24);
+    }
+
+    .screen-body {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .chat-line {
+      max-width: 88%;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 250, 243, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 250, 243, 0.07);
+      color: rgba(255, 250, 243, 0.86);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .chat-line.user {
+      justify-self: end;
+      background: rgba(198, 83, 43, 0.24);
+      border-color: rgba(198, 83, 43, 0.42);
+      color: #fffaf3;
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .prompt-card {
+      min-height: 122px;
+      padding: 16px;
+      border: 1px solid rgba(255, 250, 243, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 250, 243, 0.06);
+    }
+
+    .prompt-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fffaf3;
+      font-size: 14px;
+    }
+
+    .prompt-card span {
+      color: rgba(255, 250, 243, 0.68);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .artifact-board {
+      display: grid;
+      gap: 18px;
+    }
+
+    .artifact-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 250, 0.9);
+      box-shadow: 0 10px 36px rgba(22, 18, 13, 0.06);
+    }
+
+    .artifact-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .artifact-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .future-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .future-step {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 250, 0.92);
+    }
+
+    .future-step .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fffaf3;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .future-step h3 {
+      font-size: 18px;
+    }
+
+    .future-step p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
     .pill {
       display: inline-flex;
       align-items: center;
@@ -621,6 +777,9 @@
       .three,
       .story-layout,
       .story-photo-grid,
+      .ai-proof,
+      .prompt-grid,
+      .future-steps,
       .comparison,
       .activity-strip,
       .photo-grid {
@@ -660,6 +819,7 @@
         <div class="nav-links">
           <a href="#story">思想</a>
           <a href="#scenes">活動</a>
+          <a href="#ai-work">AI制作</a>
           <a href="#filter">条件</a>
           <a href="#entry">参加</a>
         </div>
@@ -747,8 +907,8 @@
             <div class="scene-visual" role="img" aria-label="ノートPCでAI制作をする手元"></div>
             <div class="card-inner">
               <span class="pill">AIで作る時間</span>
-              <h3>AIに投げて終わりではなく、地域の言葉に直す。</h3>
-              <p class="muted">ChatGPTで構成を出し、画像生成でラフを作り、CanvaやHTMLで形にする。最後は「この表現ならあの人に届くか」を参加者同士で確認します。</p>
+              <h3>AIとの会話を見せながら、成果物まで作る。</h3>
+              <p class="muted">ClaudeやChatGPTに相談し、プロンプトを磨き、画像や文章、LPの部品に落とし込む。画面を見せ合いながら「どこを直すと現場で使えるか」を確認します。</p>
             </div>
           </article>
 
@@ -760,6 +920,68 @@
               <p class="muted">「この文章だと硬いかも」「予約フォームを先に作ろう」「店頭POPならこの写真が強い」。小さな提案が重なり、ひとりでは止まっていた企画が動き始めます。</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI proof: AIで具体的に何をするのかを見せる -->
+    <section class="section" id="ai-work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">AI work in practice</p>
+            <h2>AIで何をしているのか、画面と成果物で見せます。</h2>
+          </div>
+          <p class="section-note">ただ「AIを使う」と言うのではなく、会話、プロンプト、生成物、改善の流れまで共有します。</p>
+        </div>
+
+        <div class="ai-proof">
+          <div class="ai-screen reveal" aria-label="AI制作画面のイメージ">
+            <div class="screen-bar">
+              <div class="screen-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <span>Claude / ChatGPT workspace</span>
+            </div>
+            <div class="screen-body">
+              <div class="chat-line user">子ども食堂の次回告知を、初めて来る親子にも安心して伝わる文章にしてください。</div>
+              <div class="chat-line">目的、対象、現場の雰囲気を分けて整理します。まず「無料」「予約」「持ち物」より先に、不安が減る一文を入れましょう。</div>
+              <div class="prompt-grid">
+                <div class="prompt-card">
+                  <strong>プロンプト断片</strong>
+                  <span>対象: 初参加の親子。トーン: あたたかいが押しつけない。必ず現場写真から伝わる空気を入れる。</span>
+                </div>
+                <div class="prompt-card">
+                  <strong>生成物</strong>
+                  <span>SNS投稿文、チラシ見出し、LINE案内文、予約フォームの説明文をまとめて作成。</span>
+                </div>
+                <div class="prompt-card">
+                  <strong>画像ラフ</strong>
+                  <span>活動写真をもとに、背景、余白、見出し位置を決めて店頭POPの方向性を作る。</span>
+                </div>
+                <div class="prompt-card">
+                  <strong>改善メモ</strong>
+                  <span>「誰に届くか」「現場で使えるか」「次の行動が明確か」を参加者同士で確認。</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="artifact-board reveal">
+            <article class="artifact-card">
+              <span class="pill">作るもの 01</span>
+              <strong>地域イベントの告知文</strong>
+              <p>AIで下書きを出し、現場の言葉に直して、LINEやSNSに投稿できる状態まで仕上げます。</p>
+            </article>
+            <article class="artifact-card">
+              <span class="pill">作るもの 02</span>
+              <strong>チラシ・店頭POPのラフ</strong>
+              <p>写真、見出し、CTAを組み合わせ、参加者が「行ってみよう」と思える見せ方に整えます。</p>
+            </article>
+            <article class="artifact-card">
+              <span class="pill">作るもの 03</span>
+              <strong>フォーム・LP・活動報告</strong>
+              <p>予約導線、募集ページ、活動後のレポートまで、次の参加につながる小さな仕組みにします。</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -797,6 +1019,29 @@
                 <li>活動報告、チラシ、フォーム、LPを実践で作れる</li>
               </ul>
             </div>
+          </article>
+        </div>
+
+        <div class="future-steps reveal" aria-label="参加後の流れ">
+          <article class="future-step">
+            <span class="step-number">1</span>
+            <h3>課題を出す</h3>
+            <p>地域やお店で気になっていることを1つ投稿。完璧な企画書は不要です。</p>
+          </article>
+          <article class="future-step">
+            <span class="step-number">2</span>
+            <h3>AIで作る</h3>
+            <p>告知文、画像ラフ、フォーム、LP部品など、まず見える形にします。</p>
+          </article>
+          <article class="future-step">
+            <span class="step-number">3</span>
+            <h3>仲間が直す</h3>
+            <p>言葉が硬い、写真が弱い、導線が遠い。参加者同士で具体的に改善します。</p>
+          </article>
+          <article class="future-step">
+            <span class="step-number">4</span>
+            <h3>現場で使う</h3>
+            <p>投稿、配布、店頭掲示、活動報告へ。使った結果まで次の改善材料にします。</p>
           </article>
         </div>
       </div>
