@@ -198,6 +198,42 @@
       font-size: 14px;
     }
 
+    .photo-frame,
+    .photo-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 16px 46px rgba(30, 25, 18, 0.1);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      height: auto;
+      object-fit: cover;
+      transition: transform 360ms ease;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 360ms ease;
+    }
+
+    .photo-frame:hover img,
+    .photo-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .photo-caption {
+      padding: 14px 16px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
     /* ==========================================================================
        Hero
        ========================================================================== */
@@ -209,8 +245,9 @@
       padding: 32px 24px 72px;
       color: #fffaf3;
       background:
-        linear-gradient(rgba(12, 12, 10, 0.26), rgba(12, 12, 10, 0.78)),
-        url("https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1800&q=82") center / cover;
+        linear-gradient(90deg, rgba(12, 10, 8, 0.9) 0%, rgba(12, 10, 8, 0.68) 46%, rgba(12, 10, 8, 0.28) 100%),
+        linear-gradient(rgba(12, 12, 10, 0.1), rgba(12, 12, 10, 0.74)),
+        url("assets/hero-cooking.jpg") center / cover;
     }
 
     .hero::after {
@@ -324,6 +361,21 @@
       line-height: 1.8;
     }
 
+    .story-photo-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .story-photo-grid .photo-frame {
+      min-height: 0;
+    }
+
+    .story-photo-grid .photo-frame:nth-child(2) {
+      min-height: 0;
+    }
+
     .scene {
       min-height: 310px;
       overflow: hidden;
@@ -336,15 +388,15 @@
     }
 
     .scene:nth-child(1) .scene-visual {
-      background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80");
+      background-image: url("assets/community-room.jpg");
     }
 
     .scene:nth-child(2) .scene-visual {
-      background-image: url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80");
+      background-image: url("assets/ai-laptop.jpg");
     }
 
     .scene:nth-child(3) .scene-visual {
-      background-image: url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=80");
+      background-image: url("assets/project-talk.jpg");
     }
 
     .pill {
@@ -412,6 +464,36 @@
       grid-template-columns: 1.2fr 0.8fr;
       gap: 18px;
       margin-top: 28px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      grid-template-rows: repeat(2, 210px);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .photo-card {
+      position: relative;
+    }
+
+    .photo-card.large {
+      grid-row: span 2;
+    }
+
+    .photo-card .photo-caption {
+      position: absolute;
+      inset: auto 12px 12px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 250, 243, 0.24);
+      border-radius: 999px;
+      background: rgba(12, 10, 8, 0.66);
+      color: #fffaf3;
+      backdrop-filter: blur(10px);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.4;
     }
 
     .metric {
@@ -538,9 +620,21 @@
       .two,
       .three,
       .story-layout,
+      .story-photo-grid,
       .comparison,
-      .activity-strip {
+      .activity-strip,
+      .photo-grid {
         grid-template-columns: 1fr;
+      }
+
+      .photo-grid {
+        grid-template-rows: auto;
+      }
+
+      .photo-card,
+      .photo-card.large {
+        grid-row: auto;
+        min-height: 260px;
       }
 
       .section-head {
@@ -614,6 +708,16 @@
           <p>一方で、AIを学ぶ場には情報があふれています。プロンプト、ツール、最新ニュース。でも、地域のテーブルに持ち込んで、誰かの役に立つ形まで仕上げる経験はなかなか得られません。</p>
           <p>このコミュニティは、知識を集める場所ではありません。小さく試し、失敗を共有し、次の一手を一緒に考える場所です。運営者が大切にしているのは、完璧な計画よりも、今日ひとつ動かすこと。AIを「便利な道具」で終わらせず、地域に手触りのある価値を生むことです。</p>
           <div class="quote">受け身で学ぶ場所ではなく、地域の課題に触れながら、自分の手でプロジェクトを前に進める場所です。</div>
+          <div class="story-photo-grid" aria-label="活動の現場写真">
+            <figure class="photo-frame">
+              <img src="assets/shared-meal.jpg" alt="子ども食堂で食事をする親子と参加者">
+              <figcaption class="photo-caption">食事の時間、会話の中から次に必要な告知や導線のヒントが見えてきます。</figcaption>
+            </figure>
+            <figure class="photo-frame">
+              <img src="assets/entrance-shoes.jpg" alt="地域活動の会場入口に並ぶたくさんの靴">
+              <figcaption class="photo-caption">入口に並ぶ靴の数が、現場に人が集まっている実感を伝えてくれます。</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -709,12 +813,35 @@
           <p class="section-note">初期コミュニティとして、現実的に続けられる活動設計にしています。</p>
         </div>
 
+        <div class="photo-grid reveal" aria-label="実際の活動写真">
+          <figure class="photo-card large">
+            <img src="assets/hero-cooking.jpg" alt="店舗の鉄板前で地域イベントの調理をする参加者たち">
+            <figcaption class="photo-caption">鉄板前で生まれる実践</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/okonomiyaki.jpg" alt="鉄板の上に置かれたお好み焼き">
+            <figcaption class="photo-caption">お店の空気</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/exterior.jpg" alt="地域店舗の外に集まる参加者">
+            <figcaption class="photo-caption">地域の入口</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/project-talk.jpg" alt="店舗内で参加者がプロジェクトについて話し合う様子">
+            <figcaption class="photo-caption">仲間との企画</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/ai-laptop.jpg" alt="店舗のカウンターでノートPCを開いて作業する様子">
+            <figcaption class="photo-caption">AIで形にする</figcaption>
+          </figure>
+        </div>
+
         <div class="activity-strip">
           <div class="grid two">
             <article class="card reveal">
               <div class="card-inner">
                 <h3>活動内容</h3>
-                <p class="muted">地域イベントの告知改善、子ども食堂の発信サポート、個人店のメニュー整理、AIを使ったチラシ案、フォーム設計、簡易LP制作など。</p>
+                <p class="muted">地域イベントの告知改善、子ども食堂の発信サポート、個人店のメニュー整理、AIを使ったチラシ案、フォーム設計、簡易LP制作など。写真に残るような現場の出来事を、次の参加につながる発信へ変えていきます。</p>
               </div>
             </article>
             <article class="card reveal">
