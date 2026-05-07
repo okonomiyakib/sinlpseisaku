@@ -10,17 +10,17 @@
        Base
        ========================================================================== */
     :root {
-      --bg: #f7f4ee;
-      --paper: #fffdfa;
-      --ink: #151515;
-      --muted: #69635a;
-      --line: rgba(21, 21, 21, 0.12);
-      --accent: #c6532b;
-      --accent-dark: #8f351f;
-      --green: #2f6b4f;
-      --blue: #315d83;
-      --gold: #b48a46;
-      --shadow: 0 24px 70px rgba(30, 25, 18, 0.12);
+      --bg: #100f0d;
+      --panel: #191713;
+      --panel-2: #211d18;
+      --ink: #fff7ea;
+      --muted: rgba(255, 247, 234, 0.68);
+      --line: rgba(255, 247, 234, 0.14);
+      --accent: #e46b32;
+      --accent-2: #ffbd66;
+      --green: #74b67a;
+      --blue: #7aa7d9;
+      --shadow: 0 26px 80px rgba(0, 0, 0, 0.34);
       --radius: 8px;
       --max: 1120px;
     }
@@ -35,16 +35,14 @@
 
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(228, 107, 50, 0.18), transparent 28%),
+        radial-gradient(circle at 86% 8%, rgba(255, 189, 102, 0.12), transparent 26%),
+        linear-gradient(180deg, #100f0d 0%, #15120f 48%, #0d0c0b 100%);
       color: var(--ink);
       font-family: "Hiragino Sans", "Yu Gothic", "YuGothic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.75;
       letter-spacing: 0;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
     }
 
     a {
@@ -55,25 +53,21 @@
       overflow: hidden;
     }
 
-    .section {
-      padding: 112px 24px;
-      border-top: 1px solid var(--line);
-    }
-
-    .section:nth-of-type(even) {
-      background: var(--paper);
-    }
-
     .container {
       width: min(100%, var(--max));
       margin: 0 auto;
     }
 
+    .section {
+      padding: 96px 24px;
+      border-top: 1px solid var(--line);
+    }
+
     .eyebrow {
-      margin: 0 0 14px;
-      color: var(--accent-dark);
+      margin: 0 0 12px;
+      color: var(--accent-2);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
@@ -86,37 +80,33 @@
     }
 
     h1 {
-      max-width: 980px;
-      margin-bottom: 26px;
-      font-size: clamp(36px, 6.2vw, 82px);
-      line-height: 1.08;
-      font-weight: 900;
+      max-width: 900px;
+      margin-bottom: 24px;
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: 1.04;
+      font-weight: 950;
       letter-spacing: 0;
     }
 
-    .headline-line {
-      display: block;
-    }
-
     h2 {
-      max-width: 760px;
-      margin-bottom: 18px;
-      font-size: clamp(30px, 4.4vw, 56px);
-      line-height: 1.16;
-      font-weight: 880;
+      max-width: 720px;
+      margin-bottom: 16px;
+      font-size: clamp(30px, 4.6vw, 58px);
+      line-height: 1.12;
+      font-weight: 930;
       letter-spacing: 0;
     }
 
     h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-      line-height: 1.35;
+      margin-bottom: 8px;
+      font-size: 19px;
+      line-height: 1.38;
     }
 
     .lead {
-      max-width: 720px;
+      max-width: 680px;
       color: var(--muted);
-      font-size: clamp(18px, 2.1vw, 22px);
+      font-size: clamp(17px, 2vw, 22px);
       line-height: 1.85;
     }
 
@@ -124,34 +114,41 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 56px;
+      min-height: 58px;
       padding: 0 28px;
-      border: 1px solid rgba(198, 83, 43, 0.5);
+      border: 1px solid rgba(228, 107, 50, 0.72);
       border-radius: 999px;
       background: var(--accent);
       color: #fffaf3;
-      font-weight: 800;
+      font-weight: 900;
       text-decoration: none;
-      box-shadow: 0 18px 36px rgba(198, 83, 43, 0.22);
+      box-shadow: 0 20px 46px rgba(228, 107, 50, 0.32);
       transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
 
     .button:hover {
       transform: translateY(-2px);
-      background: var(--accent-dark);
-      box-shadow: 0 22px 42px rgba(198, 83, 43, 0.28);
+      background: #f07a3e;
+      box-shadow: 0 24px 56px rgba(228, 107, 50, 0.42);
     }
 
     .button.secondary {
-      background: rgba(255, 253, 250, 0.88);
-      color: var(--ink);
-      border-color: rgba(21, 21, 21, 0.16);
+      background: rgba(255, 247, 234, 0.08);
+      border-color: rgba(255, 247, 234, 0.22);
       box-shadow: none;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 32px;
     }
 
     .grid {
       display: grid;
-      gap: 18px;
+      gap: 16px;
     }
 
     .two {
@@ -165,23 +162,35 @@
     .card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 253, 250, 0.9);
-      box-shadow: 0 10px 40px rgba(22, 18, 13, 0.06);
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      background: linear-gradient(180deg, rgba(255, 247, 234, 0.08), rgba(255, 247, 234, 0.045));
+      box-shadow: 0 14px 42px rgba(0, 0, 0, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
     }
 
     .card:hover {
       transform: translateY(-3px);
-      border-color: rgba(198, 83, 43, 0.35);
-      box-shadow: var(--shadow);
+      border-color: rgba(255, 189, 102, 0.42);
+      background: linear-gradient(180deg, rgba(255, 247, 234, 0.11), rgba(255, 247, 234, 0.055));
     }
 
     .card-inner {
-      padding: 28px;
+      padding: 24px;
     }
 
     .muted {
       color: var(--muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 900;
     }
 
     .section-head {
@@ -189,49 +198,14 @@
       align-items: end;
       justify-content: space-between;
       gap: 28px;
-      margin-bottom: 42px;
+      margin-bottom: 34px;
     }
 
     .section-note {
       max-width: 340px;
+      margin-bottom: 0;
       color: var(--muted);
       font-size: 14px;
-    }
-
-    .photo-frame,
-    .photo-card {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: 0 16px 46px rgba(30, 25, 18, 0.1);
-    }
-
-    .photo-frame img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      height: auto;
-      object-fit: cover;
-      transition: transform 360ms ease;
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 360ms ease;
-    }
-
-    .photo-frame:hover img,
-    .photo-card:hover img {
-      transform: scale(1.03);
-    }
-
-    .photo-caption {
-      padding: 14px 16px 16px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.65;
     }
 
     /* ==========================================================================
@@ -242,28 +216,36 @@
       min-height: 92svh;
       display: grid;
       align-items: end;
-      padding: 32px 24px 72px;
-      color: #fffaf3;
+      padding: 30px 24px 68px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 92px 24px 52px;
+      border: 1px solid rgba(255, 247, 234, 0.12);
+      border-radius: 20px;
       background:
-        linear-gradient(90deg, rgba(12, 10, 8, 0.9) 0%, rgba(12, 10, 8, 0.68) 46%, rgba(12, 10, 8, 0.28) 100%),
-        linear-gradient(rgba(12, 12, 10, 0.1), rgba(12, 12, 10, 0.74)),
-        url("assets/hero-cooking.jpg") center / cover;
+        linear-gradient(135deg, rgba(255, 247, 234, 0.06), rgba(255, 247, 234, 0.01)),
+        repeating-linear-gradient(90deg, rgba(255, 247, 234, 0.035) 0 1px, transparent 1px 94px);
+      pointer-events: none;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto 0 0;
-      height: 22%;
-      background: linear-gradient(rgba(247, 244, 238, 0), var(--bg));
+      right: 7vw;
+      bottom: 11vh;
+      width: min(38vw, 420px);
+      aspect-ratio: 1;
+      border: 1px dashed rgba(255, 189, 102, 0.34);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(228, 107, 50, 0.12), rgba(255, 189, 102, 0.04)),
+        repeating-linear-gradient(135deg, rgba(255, 247, 234, 0.08) 0 2px, transparent 2px 18px);
+      opacity: 0.55;
+      transform: rotate(-4deg);
       pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      width: min(100%, var(--max));
-      margin: 0 auto;
     }
 
     .nav {
@@ -278,307 +260,187 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      color: #fffaf3;
     }
 
     .brand {
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: 0.04em;
     }
 
     .nav-links {
       display: flex;
       gap: 22px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      opacity: 0.86;
-    }
-
-    .hero .lead {
-      color: rgba(255, 250, 243, 0.86);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 14px;
-      margin-top: 34px;
-    }
-
-    .hero-proof {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      width: min(100%, 720px);
-      margin-top: 48px;
-      border: 1px solid rgba(255, 250, 243, 0.18);
-      background: rgba(255, 250, 243, 0.16);
-      backdrop-filter: blur(14px);
-    }
-
-    .proof-item {
-      padding: 18px;
-      background: rgba(10, 10, 10, 0.2);
-    }
-
-    .proof-item strong {
-      display: block;
-      font-size: 24px;
-      line-height: 1.2;
-    }
-
-    .proof-item span {
-      color: rgba(255, 250, 243, 0.74);
-      font-size: 12px;
-    }
-
-    /* ==========================================================================
-       Narrative sections
-       ========================================================================== */
-    .story-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 56px;
-      align-items: start;
-    }
-
-    .story-copy p {
       color: var(--muted);
-      font-size: 17px;
-    }
-
-    .quote {
-      padding: 30px;
-      border-left: 4px solid var(--accent);
-      background: #ede7dc;
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1.8;
-    }
-
-    .story-photo-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 16px;
-      margin-top: 26px;
-    }
-
-    .story-photo-grid .photo-frame {
-      min-height: 0;
-    }
-
-    .story-photo-grid .photo-frame:nth-child(2) {
-      min-height: 0;
-    }
-
-    .scene {
-      min-height: 310px;
-      overflow: hidden;
-    }
-
-    .scene-visual {
-      min-height: 170px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .scene:nth-child(1) .scene-visual {
-      background-image: url("assets/community-room.jpg");
-    }
-
-    .scene:nth-child(2) .scene-visual {
-      background-image: url("assets/ai-laptop.jpg");
-    }
-
-    .scene:nth-child(3) .scene-visual {
-      background-image: url("assets/project-talk.jpg");
-    }
-
-    .ai-proof {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .ai-work-column {
-      display: grid;
-      gap: 18px;
-    }
-
-    .ai-work-photo {
-      overflow: hidden;
-      border: 1px solid rgba(21, 21, 21, 0.16);
-      border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .ai-work-photo img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-    }
-
-    .ai-work-photo .photo-caption {
-      background: rgba(255, 253, 250, 0.94);
-    }
-
-    .ai-screen {
-      overflow: hidden;
-      border: 1px solid rgba(21, 21, 21, 0.16);
-      border-radius: var(--radius);
-      background: #10100f;
-      color: #fffaf3;
-      box-shadow: var(--shadow);
-    }
-
-    .screen-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      min-height: 46px;
-      padding: 0 16px;
-      border-bottom: 1px solid rgba(255, 250, 243, 0.12);
-      color: rgba(255, 250, 243, 0.78);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .screen-dots {
-      display: flex;
-      gap: 7px;
-    }
-
-    .screen-dots span {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 250, 243, 0.24);
-    }
-
-    .screen-body {
-      display: grid;
-      gap: 14px;
-      padding: 18px;
-    }
-
-    .chat-line {
-      max-width: 88%;
-      padding: 14px 16px;
-      border: 1px solid rgba(255, 250, 243, 0.14);
-      border-radius: 8px;
-      background: rgba(255, 250, 243, 0.07);
-      color: rgba(255, 250, 243, 0.86);
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    .chat-line.user {
-      justify-self: end;
-      background: rgba(198, 83, 43, 0.24);
-      border-color: rgba(198, 83, 43, 0.42);
-      color: #fffaf3;
-    }
-
-    .prompt-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .prompt-card {
-      min-height: 122px;
-      padding: 16px;
-      border: 1px solid rgba(255, 250, 243, 0.12);
-      border-radius: 8px;
-      background: rgba(255, 250, 243, 0.06);
-    }
-
-    .prompt-card strong {
-      display: block;
-      margin-bottom: 8px;
-      color: #fffaf3;
-      font-size: 14px;
-    }
-
-    .prompt-card span {
-      color: rgba(255, 250, 243, 0.68);
-      font-size: 13px;
-      line-height: 1.65;
-    }
-
-    .artifact-board {
-      display: grid;
-      gap: 18px;
-    }
-
-    .artifact-card {
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 253, 250, 0.9);
-      box-shadow: 0 10px 36px rgba(22, 18, 13, 0.06);
-    }
-
-    .artifact-card strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 18px;
-    }
-
-    .artifact-card p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .future-steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .future-step {
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 253, 250, 0.92);
-    }
-
-    .future-step .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      margin-bottom: 16px;
-      border-radius: 50%;
-      background: var(--ink);
-      color: #fffaf3;
       font-size: 13px;
       font-weight: 900;
     }
 
-    .future-step h3 {
-      font-size: 18px;
+    .nav-links a {
+      text-decoration: none;
     }
 
-    .future-step p {
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .headline-line {
+      display: block;
+    }
+
+    .hero-quick {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      width: min(100%, 860px);
+      margin-top: 38px;
+    }
+
+    .quick-card {
+      min-height: 108px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 247, 234, 0.07);
+      backdrop-filter: blur(12px);
+    }
+
+    .quick-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+
+    .quick-card span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .visual-space {
+      min-height: 260px;
+      border: 1px dashed rgba(255, 189, 102, 0.34);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(228, 107, 50, 0.09), rgba(255, 247, 234, 0.025)),
+        repeating-linear-gradient(135deg, rgba(255, 247, 234, 0.055) 0 1px, transparent 1px 18px);
+    }
+
+    /* ==========================================================================
+       Feed
+       ========================================================================== */
+    .feed-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .brief {
+      position: sticky;
+      top: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .brief-copy {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 247, 234, 0.06);
+    }
+
+    .brief-copy p {
+      margin-bottom: 0;
+    }
+
+    .feed {
+      display: grid;
+      gap: 16px;
+    }
+
+    .post {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 247, 234, 0.075);
+      box-shadow: var(--shadow);
+    }
+
+    .post-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .post-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 38% 32%, #fff4cf 0 11%, transparent 12%),
+        linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 4px rgba(255, 247, 234, 0.06);
+    }
+
+    .post-user strong {
+      display: block;
+      line-height: 1.2;
+    }
+
+    .post-user span,
+    .post-time {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .post-body {
+      display: grid;
+      gap: 14px;
+      padding: 20px;
+    }
+
+    .post-body p {
       margin-bottom: 0;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
     }
 
-    .pill {
+    .post-title {
+      margin-bottom: 0;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.28;
+    }
+
+    .post-visual {
+      min-height: 180px;
+      border: 1px dashed rgba(255, 189, 102, 0.28);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 189, 102, 0.12), rgba(122, 167, 217, 0.06)),
+        repeating-linear-gradient(90deg, rgba(255, 247, 234, 0.04) 0 1px, transparent 1px 26px);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mini-tag {
       display: inline-flex;
       align-items: center;
       min-height: 28px;
@@ -587,34 +449,82 @@
       border-radius: 999px;
       color: var(--muted);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .comparison {
+    .lab-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
 
-    .before {
-      border-top: 5px solid #8a8a8a;
+    .lab-card {
+      min-height: 128px;
+      padding: 16px;
+      border: 1px solid rgba(255, 247, 234, 0.13);
+      border-radius: var(--radius);
+      background: rgba(16, 15, 13, 0.58);
     }
 
-    .after {
-      border-top: 5px solid var(--green);
+    .lab-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+      font-size: 14px;
+    }
+
+    .lab-card span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 247, 234, 0.055);
+    }
+
+    .step strong {
+      display: block;
+      color: var(--accent-2);
+      font-size: 12px;
+    }
+
+    .step span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       Filter / CTA
+       ========================================================================== */
+    .filter-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 16px;
     }
 
     .list {
       display: grid;
-      gap: 14px;
+      gap: 12px;
       padding: 0;
-      margin: 20px 0 0;
+      margin: 18px 0 0;
       list-style: none;
     }
 
     .list li {
       position: relative;
-      padding-left: 24px;
+      padding-left: 22px;
       color: var(--muted);
     }
 
@@ -626,100 +536,47 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .after .list li::before,
-    .want .list li::before {
       background: var(--green);
     }
 
     .reject .list li::before {
-      background: #777;
-    }
-
-    .activity-strip {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr 0.8fr;
-      grid-template-rows: repeat(2, 210px);
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .photo-card {
-      position: relative;
-    }
-
-    .photo-card.large {
-      grid-row: span 2;
-    }
-
-    .photo-card .photo-caption {
-      position: absolute;
-      inset: auto 12px 12px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255, 250, 243, 0.24);
-      border-radius: 999px;
-      background: rgba(12, 10, 8, 0.66);
-      color: #fffaf3;
-      backdrop-filter: blur(10px);
-      font-size: 12px;
-      font-weight: 800;
-      line-height: 1.4;
-    }
-
-    .metric {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .metric strong {
-      font-size: 32px;
-      line-height: 1;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: 14px;
-      text-align: right;
+      background: #8d8072;
     }
 
     .cta-panel {
       position: relative;
       overflow: hidden;
-      padding: 54px;
+      padding: 42px;
+      border: 1px solid rgba(255, 189, 102, 0.26);
       border-radius: var(--radius);
-      background: #151515;
-      color: #fffaf3;
+      background:
+        linear-gradient(135deg, rgba(228, 107, 50, 0.26), rgba(255, 247, 234, 0.08)),
+        #1a1612;
       box-shadow: var(--shadow);
     }
 
-    .cta-panel p {
-      color: rgba(255, 250, 243, 0.76);
+    .cta-panel::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -120px;
+      width: 280px;
+      height: 280px;
+      border: 1px dashed rgba(255, 189, 102, 0.3);
+      border-radius: 32px;
+      transform: rotate(12deg);
     }
 
-    .cta-panel .button.secondary {
-      background: transparent;
-      color: #fffaf3;
-      border-color: rgba(255, 250, 243, 0.28);
+    .cta-panel > * {
+      position: relative;
+      z-index: 1;
     }
 
     .limit-line {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 26px 0 0;
+      margin: 24px 0 0;
     }
 
     .limit-line span {
@@ -727,24 +584,11 @@
       align-items: center;
       min-height: 34px;
       padding: 0 12px;
-      border: 1px solid rgba(255, 250, 243, 0.18);
+      border: 1px solid rgba(255, 247, 234, 0.2);
       border-radius: 999px;
-      color: rgba(255, 250, 243, 0.8);
+      color: rgba(255, 247, 234, 0.82);
       font-size: 13px;
-      font-weight: 800;
-    }
-
-    .entry-box {
-      margin-top: 26px;
-      padding: 22px;
-      border: 1px solid rgba(255, 250, 243, 0.2);
-      border-radius: var(--radius);
-      background: rgba(255, 250, 243, 0.06);
-    }
-
-    .entry-box strong {
-      display: block;
-      margin-bottom: 8px;
+      font-weight: 900;
     }
 
     /* ==========================================================================
@@ -752,13 +596,28 @@
        ========================================================================== */
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 700ms ease, transform 700ms ease;
+      transform: translateY(18px);
+      transition: opacity 650ms ease, transform 650ms ease;
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .float {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -768,8 +627,10 @@
 
       .reveal,
       .button,
-      .card {
+      .card,
+      .float {
         transition: none;
+        animation: none;
       }
     }
 
@@ -778,7 +639,7 @@
        ========================================================================== */
     @media (max-width: 860px) {
       .section {
-        padding: 82px 18px;
+        padding: 74px 18px;
       }
 
       .nav-links {
@@ -786,45 +647,59 @@
       }
 
       .hero {
-        min-height: 88svh;
+        min-height: 92svh;
         padding: 88px 18px 58px;
       }
 
-      h1 {
-        font-size: clamp(34px, 11.8vw, 46px);
-        line-height: 1.12;
+      .hero::before {
+        inset: 82px 12px 34px;
       }
 
-      .hero-proof,
-      .two,
+      .hero::after {
+        width: 64vw;
+        right: -14vw;
+        bottom: 10vh;
+      }
+
+      h1 {
+        font-size: clamp(38px, 12vw, 52px);
+      }
+
+      .hero-quick,
       .three,
-      .story-layout,
-      .story-photo-grid,
-      .ai-proof,
-      .prompt-grid,
-      .future-steps,
-      .comparison,
-      .activity-strip,
-      .photo-grid {
+      .two,
+      .feed-layout,
+      .lab-grid,
+      .timeline,
+      .filter-grid {
         grid-template-columns: 1fr;
       }
 
-      .photo-grid {
-        grid-template-rows: auto;
-      }
-
-      .photo-card,
-      .photo-card.large {
-        grid-row: auto;
-        min-height: 260px;
+      .brief {
+        position: static;
       }
 
       .section-head {
         display: block;
       }
 
-      .card-inner {
-        padding: 22px;
+      .card-inner,
+      .brief-copy,
+      .post-body {
+        padding: 20px;
+      }
+
+      .post-head {
+        align-items: flex-start;
+      }
+
+      .post-time {
+        white-space: nowrap;
+      }
+
+      .visual-space,
+      .post-visual {
+        min-height: 170px;
       }
 
       .cta-panel {
@@ -835,380 +710,227 @@
 </head>
 <body>
   <div class="page">
-    <!-- First view: 強い理由と条件付きCTAを最初に提示 -->
+    <!-- First view: 条件付き参加と世界観を最短で伝える -->
     <header class="hero" id="top">
       <nav class="nav" aria-label="主要ナビゲーション">
-        <div class="brand">AI Local Practice</div>
+        <div class="brand">AI Local Lab</div>
         <div class="nav-links">
-          <a href="#story">思想</a>
-          <a href="#scenes">活動</a>
-          <a href="#ai-work">AI制作</a>
-          <a href="#filter">条件</a>
+          <a href="#feed">活動ログ</a>
+          <a href="#fit">参加条件</a>
           <a href="#entry">参加</a>
         </div>
       </nav>
 
       <div class="hero-inner reveal">
-        <p class="eyebrow">Open Chat for builders</p>
+        <p class="eyebrow">Secret base for local builders</p>
         <h1>
           <span class="headline-line">AI×地域活動で</span>
-          <span class="headline-line">「実践しながら</span>
-          <span class="headline-line">成長したい人」</span>
-          <span class="headline-line">募集しています</span>
+          <span class="headline-line">実践する人の</span>
+          <span class="headline-line">小さな秘密基地。</span>
         </h1>
-        <p class="lead">ただ学ぶだけでなく、実際に手を動かす人へ。地域の現場で見つけた小さな課題を、AIと仲間の力で形に変えていく実践コミュニティです。</p>
+        <p class="lead">学ぶだけで終わらせない。子ども食堂、お店づくり、地域イベントの課題を、AIと仲間でその場で形にする実験コミュニティです。</p>
         <div class="hero-actions">
           <a class="button" href="#entry">参加はこちら（条件あり）</a>
-          <a class="button secondary" href="#filter">参加条件を見る</a>
+          <a class="button secondary" href="#feed">活動ログを見る</a>
         </div>
 
-        <div class="hero-proof" aria-label="活動の規模感">
-          <div class="proof-item">
-            <strong>週1</strong>
-            <span>小さな実践共有</span>
+        <div class="hero-quick" aria-label="コミュニティの特徴">
+          <div class="quick-card">
+            <strong>見るだけNG</strong>
+            <span>小さくても毎週なにか出す</span>
           </div>
-          <div class="proof-item">
-            <strong>3領域</strong>
-            <span>地域活動、お店づくり、AI制作</span>
+          <div class="quick-card">
+            <strong>AIで制作</strong>
+            <span>LP、告知、POP、フォーム</span>
           </div>
-          <div class="proof-item">
-            <strong>行動前提</strong>
-            <span>見るだけ参加は歓迎しません</span>
+          <div class="quick-card">
+            <strong>現場起点</strong>
+            <span>地域の言葉に直して使う</span>
+          </div>
+          <div class="quick-card">
+            <strong>初期募集</strong>
+            <span>行動する人だけで型を作る</span>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Story: なぜ作ったのか、課題、運営思想 -->
-    <section class="section" id="story">
-      <div class="container story-layout">
-        <div class="reveal">
-          <p class="eyebrow">Why we started</p>
-          <h2>AIを触れる人は増えた。けれど、地域で価値に変える人はまだ少ない。</h2>
-        </div>
-        <div class="story-copy reveal">
-          <p>きっかけは、子ども食堂や小さなお店の現場で何度も見た同じ課題でした。手伝いたい人はいる。アイデアもある。けれど、告知文を作る、予約導線を整える、写真を編集する、活動報告をまとめる。そこで手が止まってしまう。</p>
-          <p>一方で、AIを学ぶ場には情報があふれています。プロンプト、ツール、最新ニュース。でも、地域のテーブルに持ち込んで、誰かの役に立つ形まで仕上げる経験はなかなか得られません。</p>
-          <p>このコミュニティは、知識を集める場所ではありません。小さく試し、失敗を共有し、次の一手を一緒に考える場所です。運営者が大切にしているのは、完璧な計画よりも、今日ひとつ動かすこと。AIを「便利な道具」で終わらせず、地域に手触りのある価値を生むことです。</p>
-          <div class="quote">受け身で学ぶ場所ではなく、地域の課題に触れながら、自分の手でプロジェクトを前に進める場所です。</div>
-          <div class="story-photo-grid" aria-label="活動の現場写真">
-            <figure class="photo-frame">
-              <img src="assets/shared-meal.jpg" alt="子ども食堂で食事をする親子と参加者">
-              <figcaption class="photo-caption">食事の時間、会話の中から次に必要な告知や導線のヒントが見えてきます。</figcaption>
-            </figure>
-            <figure class="photo-frame">
-              <img src="assets/entrance-shoes.jpg" alt="地域活動の会場入口に並ぶたくさんの靴">
-              <figcaption class="photo-caption">入口に並ぶ靴の数が、現場に人が集まっている実感を伝えてくれます。</figcaption>
-            </figure>
+    <!-- Feed: SNS投稿風に活動体験を短く見せる -->
+    <section class="section" id="feed">
+      <div class="container feed-layout">
+        <aside class="brief reveal">
+          <div class="brief-copy">
+            <p class="eyebrow">Activity feed</p>
+            <h2>活動内容は、投稿ログで読む。</h2>
+            <p class="muted">長い説明より、現場で何が起きるかを短いログで見せます。画像は後で差し込めるよう、余白だけ残しています。</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Scenes: その場にいる感覚を出す具体描写 -->
-    <section class="section" id="scenes">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <p class="eyebrow">Real scenes</p>
-            <h2>参加後に起きることを、具体的に想像できるように。</h2>
+          <div class="visual-space float" aria-label="アニメ風ビジュアルを配置する余白"></div>
+          <div class="hero-actions">
+            <a class="button" href="#entry">参加はこちら（条件あり）</a>
           </div>
-          <p class="section-note">抽象的な勉強会ではなく、現場と制作がつながる日常を共有します。</p>
-        </div>
+        </aside>
 
-        <div class="grid three">
-          <article class="card scene reveal">
-            <div class="scene-visual" role="img" aria-label="地域の食卓を囲む人たち"></div>
-            <div class="card-inner">
-              <span class="pill">子ども食堂の現場</span>
-              <h3>配膳台の横で、次回告知の言葉を拾う。</h3>
-              <p class="muted">湯気の立つ鍋、走り回る子ども、片付けながら話すスタッフ。「来月は初めての人にも来てほしい」という一言から、チラシ文面とSNS投稿の方向性が決まっていきます。</p>
-            </div>
-          </article>
-
-          <article class="card scene reveal">
-            <div class="scene-visual" role="img" aria-label="ノートPCでAI制作をする手元"></div>
-            <div class="card-inner">
-              <span class="pill">AIで作る時間</span>
-              <h3>AIとの会話を見せながら、成果物まで作る。</h3>
-              <p class="muted">ClaudeやChatGPTに相談し、プロンプトを磨き、画像や文章、LPの部品に落とし込む。画面を見せ合いながら「どこを直すと現場で使えるか」を確認します。</p>
-            </div>
-          </article>
-
-          <article class="card scene reveal">
-            <div class="scene-visual" role="img" aria-label="参加者同士が相談している様子"></div>
-            <div class="card-inner">
-              <span class="pill">参加者同士のやり取り</span>
-              <h3>未完成のまま出して、次の一手をもらう。</h3>
-              <p class="muted">「この文章だと硬いかも」「予約フォームを先に作ろう」「店頭POPならこの写真が強い」。小さな提案が重なり、ひとりでは止まっていた企画が動き始めます。</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- AI proof: AIで具体的に何をするのかを見せる -->
-    <section class="section" id="ai-work">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <p class="eyebrow">LP production with AI</p>
-            <h2>LP制作風景と、AIで形にしていく過程を見せます。</h2>
-          </div>
-          <p class="section-note">ただ「AIを使う」と言うのではなく、手元の画面、会話、プロンプト、生成物、改善の流れまで共有します。</p>
-        </div>
-
-        <div class="ai-proof">
-          <div class="ai-work-column">
-            <figure class="ai-work-photo reveal">
-              <img src="assets/ai-laptop.jpg" alt="ノートPCでAIと会話しながらLPを制作している手元">
-              <figcaption class="photo-caption">LPの見出し、文章、構成、コードをAIに投げ、画面を見せ合いながらその場で修正していきます。</figcaption>
-            </figure>
-
-            <div class="ai-screen reveal" aria-label="AI制作画面のイメージ">
-              <div class="screen-bar">
-                <div class="screen-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                <span>Claude / ChatGPT workspace</span>
+        <div class="feed">
+          <article class="post reveal">
+            <div class="post-head">
+              <div class="post-user">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <strong>Local Lab</strong>
+                  <span>子ども食堂の現場メモ</span>
+                </div>
               </div>
-              <div class="screen-body">
-                <div class="chat-line user">子ども食堂の次回告知LPを、初めて来る親子にも安心して伝わる構成にしてください。</div>
-                <div class="chat-line">ファーストビュー、活動写真、参加条件、CTAを分けて設計します。まず「誰に来てほしいか」を強く出しましょう。</div>
-                <div class="prompt-grid">
-                  <div class="prompt-card">
-                    <strong>プロンプト断片</strong>
-                    <span>対象: 行動する地域プレイヤー。目的: オープンチャット参加。条件: 受け身の人は自然に外す。</span>
-                  </div>
-                  <div class="prompt-card">
-                    <strong>LP制作</strong>
-                    <span>見出し、セクション構成、CTA、参加条件、信頼パートをHTMLに落とし込む。</span>
-                  </div>
-                  <div class="prompt-card">
-                    <strong>画像ラフ</strong>
-                    <span>活動写真をもとに、背景、余白、見出し位置を決めて店頭POPやLPの方向性を作る。</span>
-                  </div>
-                  <div class="prompt-card">
-                    <strong>改善メモ</strong>
-                    <span>「誰に届くか」「現場で使えるか」「次の行動が明確か」を参加者同士で確認。</span>
-                  </div>
+              <span class="post-time">週1ログ</span>
+            </div>
+            <div class="post-body">
+              <h3 class="post-title">「初めて来る人が不安」から、告知文を作る。</h3>
+              <p>現場の一言を拾い、AIで下書き。最後は地域の言葉に直して、SNS投稿と店頭案内にします。</p>
+              <div class="post-visual" aria-label="活動写真を配置する余白"></div>
+              <div class="tag-row">
+                <span class="mini-tag">子ども食堂</span>
+                <span class="mini-tag">告知文</span>
+                <span class="mini-tag">SNS投稿</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="post reveal">
+            <div class="post-head">
+              <div class="post-user">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <strong>AI制作部屋</strong>
+                  <span>LP / Canva / HTML</span>
+                </div>
+              </div>
+              <span class="post-time">制作ログ</span>
+            </div>
+            <div class="post-body">
+              <h3 class="post-title">AIに投げて終わりではなく、使える形まで直す。</h3>
+              <div class="lab-grid">
+                <div class="lab-card">
+                  <strong>プロンプト</strong>
+                  <span>誰に届けるか、何をしてほしいか、参加条件を先に決める。</span>
+                </div>
+                <div class="lab-card">
+                  <strong>生成物</strong>
+                  <span>見出し、LP構成、投稿文、フォーム文面を一気に出す。</span>
+                </div>
+                <div class="lab-card">
+                  <strong>改善</strong>
+                  <span>硬い表現を削り、地域の空気が伝わる言葉に直す。</span>
+                </div>
+                <div class="lab-card">
+                  <strong>公開</strong>
+                  <span>小さく出して、反応を見て、次の一手を決める。</span>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
 
-          <div class="artifact-board reveal">
-            <article class="artifact-card">
-              <span class="pill">作るもの 01</span>
-              <strong>地域イベントの告知文</strong>
-              <p>AIで下書きを出し、現場の言葉に直して、LINEやSNSに投稿できる状態まで仕上げます。</p>
-            </article>
-            <article class="artifact-card">
-              <span class="pill">作るもの 02</span>
-              <strong>チラシ・店頭POPのラフ</strong>
-              <p>写真、見出し、CTAを組み合わせ、参加者が「行ってみよう」と思える見せ方に整えます。</p>
-            </article>
-            <article class="artifact-card">
-              <span class="pill">作るもの 03</span>
-              <strong>フォーム・LP・活動報告</strong>
-              <p>予約導線、募集ページ、活動後のレポートまで、次の参加につながる小さな仕組みにします。</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Before After: 変化を明確に提示 -->
-    <section class="section" id="change">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <p class="eyebrow">Before / After</p>
-            <h2>AIを触る人から、地域で価値を動かす人へ。</h2>
-          </div>
-        </div>
-
-        <div class="comparison">
-          <article class="card before reveal">
-            <div class="card-inner">
-              <h3>Before</h3>
-              <ul class="list">
-                <li>一人で考えすぎて、最初の一歩が出ない</li>
-                <li>AIを触って満足し、現場で使うところまで進まない</li>
-                <li>地域活動やお店づくりのアイデアが頭の中で止まる</li>
-                <li>相談できる相手がいないため、改善点が見えない</li>
-              </ul>
+          <article class="post reveal">
+            <div class="post-head">
+              <div class="post-user">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <strong>実験コミュニティ</strong>
+                  <span>参加後の流れ</span>
+                </div>
+              </div>
+              <span class="post-time">4 steps</span>
             </div>
-          </article>
-
-          <article class="card after reveal">
-            <div class="card-inner">
-              <h3>After</h3>
-              <ul class="list">
-                <li>仲間と小さなプロジェクトを動かせる</li>
-                <li>AI制作物を告知、導線、運営改善に使える</li>
-                <li>地域の人に届く言葉と見せ方を磨ける</li>
-                <li>活動報告、チラシ、フォーム、LPを実践で作れる</li>
-              </ul>
+            <div class="post-body">
+              <h3 class="post-title">未完成で出す。仲間が直す。現場で使う。</h3>
+              <div class="timeline">
+                <div class="step">
+                  <strong>01</strong>
+                  <span>課題を投稿</span>
+                </div>
+                <div class="step">
+                  <strong>02</strong>
+                  <span>AIで試作</span>
+                </div>
+                <div class="step">
+                  <strong>03</strong>
+                  <span>仲間が改善</span>
+                </div>
+                <div class="step">
+                  <strong>04</strong>
+                  <span>現場で使う</span>
+                </div>
+              </div>
             </div>
-          </article>
-        </div>
-
-        <div class="future-steps reveal" aria-label="参加後の流れ">
-          <article class="future-step">
-            <span class="step-number">1</span>
-            <h3>課題を出す</h3>
-            <p>地域やお店で気になっていることを1つ投稿。完璧な企画書は不要です。</p>
-          </article>
-          <article class="future-step">
-            <span class="step-number">2</span>
-            <h3>AIで作る</h3>
-            <p>告知文、画像ラフ、フォーム、LP部品など、まず見える形にします。</p>
-          </article>
-          <article class="future-step">
-            <span class="step-number">3</span>
-            <h3>仲間が直す</h3>
-            <p>言葉が硬い、写真が弱い、導線が遠い。参加者同士で具体的に改善します。</p>
-          </article>
-          <article class="future-step">
-            <span class="step-number">4</span>
-            <h3>現場で使う</h3>
-            <p>投稿、配布、店頭掲示、活動報告へ。使った結果まで次の改善材料にします。</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Trust: 活動内容、規模感、実績 -->
-    <section class="section" id="trust">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <p class="eyebrow">Credibility</p>
-            <h2>派手な実績より、手を動かした記録を重視します。</h2>
-          </div>
-          <p class="section-note">初期コミュニティとして、現実的に続けられる活動設計にしています。</p>
-        </div>
-
-        <div class="photo-grid reveal" aria-label="実際の活動写真">
-          <figure class="photo-card large">
-            <img src="assets/hero-cooking.jpg" alt="店舗の鉄板前で地域イベントの調理をする参加者たち">
-            <figcaption class="photo-caption">鉄板前で生まれる実践</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="assets/okonomiyaki.jpg" alt="鉄板の上に置かれたお好み焼き">
-            <figcaption class="photo-caption">お店の空気</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="assets/exterior.jpg" alt="地域店舗の外に集まる参加者">
-            <figcaption class="photo-caption">地域の入口</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="assets/project-talk.jpg" alt="店舗内で参加者がプロジェクトについて話し合う様子">
-            <figcaption class="photo-caption">仲間との企画</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="assets/ai-laptop.jpg" alt="店舗のカウンターでノートPCを開いて作業する様子">
-            <figcaption class="photo-caption">AIで形にする</figcaption>
-          </figure>
-        </div>
-
-        <div class="activity-strip">
-          <div class="grid two">
-            <article class="card reveal">
-              <div class="card-inner">
-                <h3>活動内容</h3>
-                <p class="muted">地域イベントの告知改善、子ども食堂の発信サポート、個人店のメニュー整理、AIを使ったチラシ案、フォーム設計、簡易LP制作など。写真に残るような現場の出来事を、次の参加につながる発信へ変えていきます。</p>
-              </div>
-            </article>
-            <article class="card reveal">
-              <div class="card-inner">
-                <h3>進め方</h3>
-                <p class="muted">週ごとの実践共有、制作物へのフィードバック、現場で試した結果の共有。成果物は小さくても、実際に使うことを優先します。</p>
-              </div>
-            </article>
-          </div>
-
-          <aside class="card reveal">
-            <div class="card-inner">
-              <div class="metric">
-                <strong>5件</strong>
-                <span>想定プロジェクト例を常時共有</span>
-              </div>
-              <div class="metric">
-                <strong>30分</strong>
-                <span>週の最小アクション目安</span>
-              </div>
-              <div class="metric">
-                <strong>1つ</strong>
-                <span>毎週なにかを出す文化</span>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- Filter: 来てほしい人、来てほしくない人 -->
-    <section class="section" id="filter">
+    <!-- Fit: フィルターとBefore/Afterを統合 -->
+    <section class="section" id="fit">
       <div class="container">
         <div class="section-head reveal">
           <div>
             <p class="eyebrow">Participation filter</p>
-            <h2>誰でも歓迎、ではありません。</h2>
+            <h2>行動する人だけが、居心地よくなる設計です。</h2>
           </div>
-          <p class="section-note">コミュニティの熱量を守るため、合う人と合わない人を明確にしています。</p>
+          <p class="section-note">受け身の人を増やすより、実験ログが増えることを優先します。</p>
         </div>
 
-        <div class="grid two">
-          <article class="card want reveal">
+        <div class="filter-grid">
+          <article class="card reveal">
             <div class="card-inner">
-              <h3>来てほしい人</h3>
+              <span class="pill">Before / After</span>
+              <h3>AIを触る人から、地域で動かす人へ。</h3>
               <ul class="list">
-                <li>AIを地域活動やお店づくりに使ってみたい人</li>
-                <li>未完成でも制作物や試した結果を共有できる人</li>
-                <li>子ども食堂、商店街、個人店、地域イベントに関心がある人</li>
-                <li>自分の得意を誰かの役に立てたい人</li>
-                <li>週に一度、小さくても行動できる人</li>
+                <li>一人で悩むより、まず投稿する</li>
+                <li>AIの下書きを、現場の言葉に直す</li>
+                <li>告知、POP、LP、フォームを実際に使う</li>
               </ul>
             </div>
           </article>
 
-          <article class="card reject reveal">
-            <div class="card-inner">
-              <h3>来てほしくない人</h3>
-              <ul class="list">
-                <li>受け身で情報だけを集めたい人は向いていません</li>
-                <li>AIで楽に稼ぐ話だけを求める人は合いません</li>
-                <li>批評だけして手を動かさない人は参加しないでください</li>
-                <li>地域や現場の事情に敬意を持てない人は歓迎しません</li>
-                <li>すぐに完璧な成果を求める人には不向きです</li>
-              </ul>
-            </div>
-          </article>
+          <div class="grid two">
+            <article class="card reveal">
+              <div class="card-inner">
+                <span class="pill">来てほしい人</span>
+                <ul class="list">
+                  <li>地域活動やお店づくりに関わりたい</li>
+                  <li>未完成でも制作物を出せる</li>
+                  <li>週1回、小さく手を動かせる</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card reject reveal">
+              <div class="card-inner">
+                <span class="pill">向いていない人</span>
+                <ul class="list">
+                  <li>情報収集だけしたい</li>
+                  <li>批評だけで手を動かさない</li>
+                  <li>地域の事情に敬意を持てない</li>
+                </ul>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA: 今参加する理由、軽い限定性、条件付き導線 -->
+    <!-- CTA: 最後は短く、条件付きで締める -->
     <section class="section" id="entry">
       <div class="container">
         <div class="cta-panel reveal">
           <p class="eyebrow">Join now</p>
-          <h2>今の初期メンバーだから、活動の型づくりから関われます。</h2>
-          <p class="lead">参加者が増えすぎる前に、まずは「実際に動く人」が集まる状態を作ります。見るだけの人数を増やすより、制作物と実践共有が生まれる密度を優先します。</p>
+          <h2>初期メンバーとして、実験の型づくりから参加してください。</h2>
+          <p class="lead">参加後は「今やってみたいこと」か「地域で気になる課題」を1つ投稿してください。投稿できない場合、このコミュニティには合わない可能性があります。</p>
           <div class="limit-line">
             <span>初期募集</span>
             <span>行動前提</span>
-            <span>参加条件あり</span>
+            <span>見るだけ不可</span>
           </div>
-
-          <div class="entry-box">
-            <strong>参加前の確認</strong>
-            <p>参加後は、自己紹介だけでなく「今やってみたいこと」または「地域で気になっている課題」をひとつ投稿してください。投稿できない場合、このコミュニティには合わない可能性があります。</p>
-          </div>
-
           <div class="hero-actions">
             <a class="button" href="https://line.me/ti/g2/" target="_blank" rel="noreferrer">参加はこちら（条件あり）</a>
-            <a class="button secondary" href="#filter">条件をもう一度見る</a>
+            <a class="button secondary" href="#fit">条件をもう一度見る</a>
           </div>
         </div>
       </div>
@@ -1216,7 +938,7 @@
   </div>
 
   <script>
-    // Fade-in animation: IntersectionObserverで表示範囲に入った要素だけを自然に出す
+    // 軽いフェードインだけに絞り、スクロール体験を邪魔しない。
     const revealItems = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -1225,11 +947,11 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.16 });
+    }, { threshold: 0.14 });
 
     revealItems.forEach((item) => observer.observe(item));
 
-    // CTAクリック時の最低限の計測フック。実運用ではここをGA4やLINE導線に接続する。
+    // CTA計測用の最小フック。必要になったらGA4やLINE計測へ接続する。
     document.querySelectorAll(".button").forEach((button) => {
       button.addEventListener("click", () => {
         button.dataset.clicked = "true";
