@@ -3,26 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI×地域活動で実践しながら成長するコミュニティ</title>
-  <meta name="description" content="AIを使って地域活動やお店づくりに挑戦したい、行動する人のための実践型オープンチャット。">
+  <title>AI×地域活動で未来をつくる秘密基地</title>
+  <meta name="description" content="AI、地域活動、学び、挑戦をテーマにした実験コミュニティ。夜の秘密基地のように、遊びながら未来をつくる仲間を募集しています。">
   <style>
-    /* ==========================================================================
-       Base
-       ========================================================================== */
     :root {
-      --bg: #100f0d;
-      --panel: #191713;
-      --panel-2: #211d18;
-      --ink: #fff7ea;
-      --muted: rgba(255, 247, 234, 0.68);
-      --line: rgba(255, 247, 234, 0.14);
-      --accent: #e46b32;
-      --accent-2: #ffbd66;
-      --green: #74b67a;
-      --blue: #7aa7d9;
-      --shadow: 0 26px 80px rgba(0, 0, 0, 0.34);
+      --night: #0b1020;
+      --deep: #070a13;
+      --panel: rgba(14, 18, 31, 0.72);
+      --paper: rgba(255, 246, 229, 0.88);
+      --ink: #fff7e8;
+      --muted: rgba(255, 247, 232, 0.72);
+      --line: rgba(255, 247, 232, 0.16);
+      --lantern: #f6b35d;
+      --ember: #e75f32;
+      --blue: #6fa8dc;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.46);
       --radius: 8px;
-      --max: 1120px;
+      --max: 1160px;
     }
 
     * {
@@ -31,22 +28,60 @@
 
     html {
       scroll-behavior: smooth;
+      background: var(--deep);
     }
 
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at 18% 12%, rgba(228, 107, 50, 0.18), transparent 28%),
-        radial-gradient(circle at 86% 8%, rgba(255, 189, 102, 0.12), transparent 26%),
-        linear-gradient(180deg, #100f0d 0%, #15120f 48%, #0d0c0b 100%);
       color: var(--ink);
-      font-family: "Hiragino Sans", "Yu Gothic", "YuGothic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.75;
+      font-family: "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 20% 8%, rgba(246, 179, 93, 0.18), transparent 30%),
+        radial-gradient(circle at 82% 14%, rgba(111, 168, 220, 0.14), transparent 28%),
+        linear-gradient(180deg, var(--night), var(--deep) 58%, #0b0806);
       letter-spacing: 0;
+      line-height: 1.7;
     }
 
     a {
       color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      font-size: clamp(44px, 8vw, 108px);
+      line-height: 0.98;
+      font-weight: 950;
+      text-wrap: balance;
+      text-shadow: 0 5px 34px rgba(0, 0, 0, 0.62);
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(32px, 5vw, 72px);
+      line-height: 1.05;
+      font-weight: 940;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+      line-height: 1.32;
     }
 
     .page {
@@ -58,56 +93,22 @@
       margin: 0 auto;
     }
 
-    .section {
-      padding: 96px 24px;
-      border-top: 1px solid var(--line);
-    }
-
     .eyebrow {
-      margin: 0 0 12px;
-      color: var(--accent-2);
+      margin-bottom: 12px;
+      color: var(--lantern);
       font-size: 12px;
       font-weight: 900;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 900px;
-      margin-bottom: 24px;
-      font-size: clamp(42px, 7vw, 86px);
-      line-height: 1.04;
-      font-weight: 950;
-      letter-spacing: 0;
-    }
-
-    h2 {
-      max-width: 720px;
-      margin-bottom: 16px;
-      font-size: clamp(30px, 4.6vw, 58px);
-      line-height: 1.12;
-      font-weight: 930;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      margin-bottom: 8px;
-      font-size: 19px;
-      line-height: 1.38;
     }
 
     .lead {
       max-width: 680px;
+      margin-bottom: 0;
       color: var(--muted);
-      font-size: clamp(17px, 2vw, 22px);
-      line-height: 1.85;
+      font-size: clamp(17px, 2.1vw, 23px);
+      line-height: 1.8;
+      text-wrap: pretty;
     }
 
     .button {
@@ -116,81 +117,162 @@
       justify-content: center;
       min-height: 58px;
       padding: 0 28px;
-      border: 1px solid rgba(228, 107, 50, 0.72);
+      border: 1px solid rgba(246, 179, 93, 0.54);
       border-radius: 999px;
-      background: var(--accent);
-      color: #fffaf3;
-      font-weight: 900;
+      background: linear-gradient(135deg, var(--ember), #f59a4c);
+      color: #fff8ec;
+      font-weight: 920;
       text-decoration: none;
-      box-shadow: 0 20px 46px rgba(228, 107, 50, 0.32);
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      box-shadow: 0 22px 54px rgba(231, 95, 50, 0.36);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
 
     .button:hover {
-      transform: translateY(-2px);
-      background: #f07a3e;
-      box-shadow: 0 24px 56px rgba(228, 107, 50, 0.42);
+      transform: translateY(-3px);
+      border-color: rgba(255, 247, 232, 0.5);
+      box-shadow: 0 30px 70px rgba(231, 95, 50, 0.48);
     }
 
     .button.secondary {
-      background: rgba(255, 247, 234, 0.08);
-      border-color: rgba(255, 247, 234, 0.22);
+      background: rgba(255, 247, 232, 0.1);
       box-shadow: none;
+      backdrop-filter: blur(16px);
     }
 
-    .hero-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 14px;
-      margin-top: 32px;
+      margin-top: 34px;
     }
 
-    .grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .three {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255, 247, 234, 0.08), rgba(255, 247, 234, 0.045));
-      box-shadow: 0 14px 42px rgba(0, 0, 0, 0.18);
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255, 189, 102, 0.42);
-      background: linear-gradient(180deg, rgba(255, 247, 234, 0.11), rgba(255, 247, 234, 0.055));
-    }
-
-    .card-inner {
-      padding: 24px;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .pill {
-      display: inline-flex;
+    .nav {
+      position: fixed;
+      z-index: 20;
+      top: 18px;
+      left: 50%;
+      width: min(calc(100% - 28px), var(--max));
+      transform: translateX(-50%);
+      display: flex;
       align-items: center;
-      min-height: 28px;
-      padding: 0 10px;
-      border: 1px solid var(--line);
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 14px 12px 18px;
+      border: 1px solid rgba(255, 247, 232, 0.16);
       border-radius: 999px;
-      color: var(--accent-2);
+      background: rgba(7, 10, 19, 0.54);
+      backdrop-filter: blur(22px);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 880;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .section {
+      position: relative;
+      padding: 120px 24px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 110px 24px 72px;
+      isolation: isolate;
+    }
+
+    .hero-media,
+    .cinema-media,
+    .final-media {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .hero-media img,
+    .cinema-media img,
+    .final-media img {
+      transform: scale(1.05);
+      transition: transform 500ms ease;
+      will-change: transform;
+    }
+
+    .hero::after,
+    .cinema::after,
+    .final-cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(7, 10, 19, 0.5), rgba(7, 10, 19, 0.24) 42%, rgba(7, 10, 19, 0.86)),
+        radial-gradient(circle at 50% 56%, rgba(246, 179, 93, 0.12), transparent 38%);
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-copy .lead,
+    .hero-copy .actions {
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      width: min(100%, 820px);
+      margin: 48px auto 0;
+    }
+
+    .signal {
+      min-height: 94px;
+      padding: 18px;
+      border: 1px solid rgba(255, 247, 232, 0.17);
+      border-radius: var(--radius);
+      background: rgba(7, 10, 19, 0.48);
+      backdrop-filter: blur(18px);
+    }
+
+    .signal strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .signal span {
+      color: var(--muted);
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 760;
     }
 
     .section-head {
@@ -198,7 +280,7 @@
       align-items: end;
       justify-content: space-between;
       gap: 28px;
-      margin-bottom: 34px;
+      margin-bottom: 40px;
     }
 
     .section-note {
@@ -208,166 +290,128 @@
       font-size: 14px;
     }
 
-    /* ==========================================================================
-       Hero
-       ========================================================================== */
-    .hero {
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .activity-card {
       position: relative;
-      min-height: 92svh;
+      min-height: 430px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #111827;
+      box-shadow: var(--shadow);
+      transition: transform 220ms ease, border-color 220ms ease;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(246, 179, 93, 0.5);
+    }
+
+    .activity-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 10, 19, 0.08), rgba(7, 10, 19, 0.78));
+    }
+
+    .activity-card img {
+      height: 100%;
+      transform: scale(1.03);
+    }
+
+    .activity-copy {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 22px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid rgba(255, 247, 232, 0.2);
+      border-radius: 999px;
+      color: var(--lantern);
+      font-size: 12px;
+      font-weight: 900;
+      background: rgba(7, 10, 19, 0.42);
+      backdrop-filter: blur(10px);
+    }
+
+    .activity-copy h3 {
+      margin-top: 14px;
+      font-size: 24px;
+    }
+
+    .activity-copy p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cinema {
+      position: relative;
+      min-height: 88svh;
       display: grid;
       align-items: end;
-      padding: 30px 24px 68px;
+      padding: 130px 24px 86px;
+      isolation: isolate;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 92px 24px 52px;
-      border: 1px solid rgba(255, 247, 234, 0.12);
-      border-radius: 20px;
-      background:
-        linear-gradient(135deg, rgba(255, 247, 234, 0.06), rgba(255, 247, 234, 0.01)),
-        repeating-linear-gradient(90deg, rgba(255, 247, 234, 0.035) 0 1px, transparent 1px 94px);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: 7vw;
-      bottom: 11vh;
-      width: min(38vw, 420px);
-      aspect-ratio: 1;
-      border: 1px dashed rgba(255, 189, 102, 0.34);
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(228, 107, 50, 0.12), rgba(255, 189, 102, 0.04)),
-        repeating-linear-gradient(135deg, rgba(255, 247, 234, 0.08) 0 2px, transparent 2px 18px);
-      opacity: 0.55;
-      transform: rotate(-4deg);
-      pointer-events: none;
-    }
-
-    .nav {
-      position: absolute;
-      z-index: 2;
-      top: 24px;
-      left: 24px;
-      right: 24px;
-      width: min(calc(100% - 48px), var(--max));
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      font-weight: 950;
-      letter-spacing: 0.04em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
+    .cinema-copy {
       width: min(100%, var(--max));
       margin: 0 auto;
     }
 
-    .headline-line {
-      display: block;
-    }
-
-    .hero-quick {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      width: min(100%, 860px);
-      margin-top: 38px;
-    }
-
-    .quick-card {
-      min-height: 108px;
-      padding: 18px;
-      border: 1px solid var(--line);
+    .glass {
+      width: min(100%, 620px);
+      padding: 30px;
+      border: 1px solid rgba(255, 247, 232, 0.18);
       border-radius: var(--radius);
-      background: rgba(255, 247, 234, 0.07);
-      backdrop-filter: blur(12px);
-    }
-
-    .quick-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 24px;
-      line-height: 1.15;
-    }
-
-    .quick-card span {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.55;
-    }
-
-    .visual-space {
-      min-height: 260px;
-      border: 1px dashed rgba(255, 189, 102, 0.34);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(228, 107, 50, 0.09), rgba(255, 247, 234, 0.025)),
-        repeating-linear-gradient(135deg, rgba(255, 247, 234, 0.055) 0 1px, transparent 1px 18px);
-    }
-
-    /* ==========================================================================
-       Feed
-       ========================================================================== */
-    .feed-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-      gap: 30px;
-      align-items: start;
-    }
-
-    .brief {
-      position: sticky;
-      top: 24px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .brief-copy {
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 247, 234, 0.06);
-    }
-
-    .brief-copy p {
-      margin-bottom: 0;
+      background: rgba(7, 10, 19, 0.5);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
     }
 
     .feed {
       display: grid;
-      gap: 16px;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .feed-intro {
+      position: sticky;
+      top: 100px;
+    }
+
+    .post-list {
+      display: grid;
+      gap: 14px;
     }
 
     .post {
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 247, 234, 0.075);
-      box-shadow: var(--shadow);
+      background: rgba(255, 247, 232, 0.07);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 58px rgba(0, 0, 0, 0.24);
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .post:hover {
+      transform: translateY(-4px);
+      border-color: rgba(111, 168, 220, 0.42);
     }
 
     .post-head {
@@ -391,9 +435,9 @@
       height: 38px;
       border-radius: 50%;
       background:
-        radial-gradient(circle at 38% 32%, #fff4cf 0 11%, transparent 12%),
-        linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 0 4px rgba(255, 247, 234, 0.06);
+        radial-gradient(circle at 38% 32%, #fff2cc 0 12%, transparent 13%),
+        linear-gradient(135deg, var(--ember), var(--blue));
+      box-shadow: 0 0 0 4px rgba(255, 247, 232, 0.06);
     }
 
     .post-user strong {
@@ -419,19 +463,10 @@
       color: var(--muted);
     }
 
-    .post-title {
-      margin-bottom: 0;
-      font-size: clamp(22px, 3vw, 34px);
-      line-height: 1.28;
-    }
-
-    .post-visual {
-      min-height: 180px;
-      border: 1px dashed rgba(255, 189, 102, 0.28);
+    .post-media {
+      height: 260px;
+      overflow: hidden;
       border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(255, 189, 102, 0.12), rgba(122, 167, 217, 0.06)),
-        repeating-linear-gradient(90deg, rgba(255, 247, 234, 0.04) 0 1px, transparent 1px 26px);
     }
 
     .tag-row {
@@ -449,175 +484,92 @@
       border-radius: 999px;
       color: var(--muted);
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 880;
     }
 
-    .lab-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .lab-card {
-      min-height: 128px;
-      padding: 16px;
-      border: 1px solid rgba(255, 247, 234, 0.13);
-      border-radius: var(--radius);
-      background: rgba(16, 15, 13, 0.58);
-    }
-
-    .lab-card strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--accent-2);
-      font-size: 14px;
-    }
-
-    .lab-card span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .timeline {
+    .philosophy {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
     }
 
-    .step {
-      padding: 16px;
+    .word-card {
+      min-height: 210px;
+      display: flex;
+      align-items: end;
+      padding: 22px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 247, 234, 0.055);
-    }
-
-    .step strong {
-      display: block;
-      color: var(--accent-2);
-      font-size: 12px;
-    }
-
-    .step span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    /* ==========================================================================
-       Filter / CTA
-       ========================================================================== */
-    .filter-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 16px;
-    }
-
-    .list {
-      display: grid;
-      gap: 12px;
-      padding: 0;
-      margin: 18px 0 0;
-      list-style: none;
-    }
-
-    .list li {
-      position: relative;
-      padding-left: 22px;
-      color: var(--muted);
-    }
-
-    .list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.78em;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-
-    .reject .list li::before {
-      background: #8d8072;
-    }
-
-    .cta-panel {
-      position: relative;
-      overflow: hidden;
-      padding: 42px;
-      border: 1px solid rgba(255, 189, 102, 0.26);
-      border-radius: var(--radius);
       background:
-        linear-gradient(135deg, rgba(228, 107, 50, 0.26), rgba(255, 247, 234, 0.08)),
-        #1a1612;
+        linear-gradient(135deg, rgba(246, 179, 93, 0.13), rgba(111, 168, 220, 0.07)),
+        rgba(255, 247, 232, 0.05);
+      box-shadow: 0 16px 54px rgba(0, 0, 0, 0.2);
+    }
+
+    .word-card strong {
+      font-size: clamp(25px, 3vw, 38px);
+      line-height: 1.15;
+      text-wrap: balance;
+    }
+
+    .final-cta {
+      position: relative;
+      min-height: 92svh;
+      display: grid;
+      align-items: center;
+      padding: 120px 24px 76px;
+      isolation: isolate;
+    }
+
+    .final-panel {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 58px);
+      border: 1px solid rgba(255, 247, 232, 0.18);
+      border-radius: var(--radius);
+      background: rgba(7, 10, 19, 0.42);
+      backdrop-filter: blur(20px);
+      text-align: center;
       box-shadow: var(--shadow);
     }
 
-    .cta-panel::after {
-      content: "";
-      position: absolute;
-      right: -80px;
-      bottom: -120px;
-      width: 280px;
-      height: 280px;
-      border: 1px dashed rgba(255, 189, 102, 0.3);
-      border-radius: 32px;
-      transform: rotate(12deg);
+    .final-panel .lead,
+    .final-panel .actions {
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
     }
 
-    .cta-panel > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .limit-line {
+    .rules {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
-      margin: 24px 0 0;
+      margin-top: 26px;
     }
 
-    .limit-line span {
+    .rules span {
       display: inline-flex;
       align-items: center;
       min-height: 34px;
       padding: 0 12px;
-      border: 1px solid rgba(255, 247, 234, 0.2);
+      border: 1px solid rgba(255, 247, 232, 0.18);
       border-radius: 999px;
-      color: rgba(255, 247, 234, 0.82);
+      color: var(--muted);
       font-size: 13px;
       font-weight: 900;
+      background: rgba(255, 247, 232, 0.07);
     }
 
-    /* ==========================================================================
-       Animation
-       ========================================================================== */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 650ms ease, transform 650ms ease;
+      transform: translateY(22px);
+      transition: opacity 760ms ease, transform 760ms ease;
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    .float {
-      animation: float 5s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-8px);
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -627,318 +579,288 @@
 
       .reveal,
       .button,
-      .card,
-      .float {
+      .activity-card,
+      .post,
+      .hero-media img,
+      .cinema-media img,
+      .final-media img {
         transition: none;
-        animation: none;
       }
     }
 
-    /* ==========================================================================
-       Responsive
-       ========================================================================== */
-    @media (max-width: 860px) {
-      .section {
-        padding: 74px 18px;
-      }
-
+    @media (max-width: 940px) {
       .nav-links {
         display: none;
       }
 
+      .section {
+        padding: 86px 18px;
+      }
+
       .hero {
-        min-height: 92svh;
-        padding: 88px 18px 58px;
+        min-height: 100svh;
+        padding: 92px 18px 52px;
       }
 
-      .hero::before {
-        inset: 82px 12px 34px;
-      }
-
-      .hero::after {
-        width: 64vw;
-        right: -14vw;
-        bottom: 10vh;
+      .hero-media img {
+        object-position: center top;
       }
 
       h1 {
-        font-size: clamp(38px, 12vw, 52px);
+        font-size: clamp(42px, 14vw, 64px);
       }
 
-      .hero-quick,
-      .three,
-      .two,
-      .feed-layout,
-      .lab-grid,
-      .timeline,
-      .filter-grid {
+      .signal-row,
+      .activity-grid,
+      .feed,
+      .philosophy {
         grid-template-columns: 1fr;
       }
 
-      .brief {
+      .signal {
+        min-height: auto;
+      }
+
+      .activity-card {
+        min-height: 440px;
+      }
+
+      .cinema {
+        min-height: 82svh;
+        padding: 96px 18px 58px;
+      }
+
+      .feed-intro {
         position: static;
       }
 
-      .section-head {
-        display: block;
+      .post-media {
+        height: 220px;
       }
 
-      .card-inner,
-      .brief-copy,
-      .post-body {
-        padding: 20px;
+      .word-card {
+        min-height: 150px;
       }
 
-      .post-head {
-        align-items: flex-start;
-      }
-
-      .post-time {
-        white-space: nowrap;
-      }
-
-      .visual-space,
-      .post-visual {
-        min-height: 170px;
-      }
-
-      .cta-panel {
-        padding: 30px 22px;
+      .final-cta {
+        min-height: 90svh;
+        padding: 92px 18px 52px;
       }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- First view: 条件付き参加と世界観を最短で伝える -->
+    <nav class="nav" aria-label="主要ナビゲーション">
+      <div class="brand">まちの未来研究所</div>
+      <div class="nav-links">
+        <a href="#activities">活動</a>
+        <a href="#logs">最近</a>
+        <a href="#mind">思想</a>
+        <a href="#entry">参加</a>
+      </div>
+    </nav>
+
+    <!-- First view: 画像全面の没入導入 -->
     <header class="hero" id="top">
-      <nav class="nav" aria-label="主要ナビゲーション">
-        <div class="brand">AI Local Lab</div>
-        <div class="nav-links">
-          <a href="#feed">活動ログ</a>
-          <a href="#fit">参加条件</a>
-          <a href="#entry">参加</a>
-        </div>
-      </nav>
-
-      <div class="hero-inner reveal">
-        <p class="eyebrow">Secret base for local builders</p>
-        <h1>
-          <span class="headline-line">AI×地域活動で</span>
-          <span class="headline-line">実践する人の</span>
-          <span class="headline-line">小さな秘密基地。</span>
-        </h1>
-        <p class="lead">学ぶだけで終わらせない。子ども食堂、お店づくり、地域イベントの課題を、AIと仲間でその場で形にする実験コミュニティです。</p>
-        <div class="hero-actions">
+      <div class="hero-media parallax" data-speed="0.16">
+        <img src="assets/secret-base-room.jpg" alt="夜の秘密基地で未来について語る挑戦者たち">
+      </div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Night base for future builders</p>
+        <h1>未来は、<br>つくる側にまわろう。</h1>
+        <p class="lead">AIと地域活動を、遊びながら実験する。ここは、挑戦者たちの小さな秘密基地です。</p>
+        <div class="actions">
           <a class="button" href="#entry">参加はこちら（条件あり）</a>
-          <a class="button secondary" href="#feed">活動ログを見る</a>
+          <a class="button secondary" href="#activities">中をのぞく</a>
         </div>
-
-        <div class="hero-quick" aria-label="コミュニティの特徴">
-          <div class="quick-card">
-            <strong>見るだけNG</strong>
-            <span>小さくても毎週なにか出す</span>
+        <div class="signal-row" aria-label="コミュニティの特徴">
+          <div class="signal">
+            <strong>小さく始める</strong>
+            <span>完璧より、まず一手。</span>
           </div>
-          <div class="quick-card">
-            <strong>AIで制作</strong>
-            <span>LP、告知、POP、フォーム</span>
+          <div class="signal">
+            <strong>AIで形にする</strong>
+            <span>告知、LP、POP、企画。</span>
           </div>
-          <div class="quick-card">
-            <strong>現場起点</strong>
-            <span>地域の言葉に直して使う</span>
-          </div>
-          <div class="quick-card">
-            <strong>初期募集</strong>
-            <span>行動する人だけで型を作る</span>
+          <div class="signal">
+            <strong>仲間で育てる</strong>
+            <span>未完成を持ち寄る。</span>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Feed: SNS投稿風に活動体験を短く見せる -->
-    <section class="section" id="feed">
-      <div class="container feed-layout">
-        <aside class="brief reveal">
-          <div class="brief-copy">
-            <p class="eyebrow">Activity feed</p>
-            <h2>活動内容は、投稿ログで読む。</h2>
-            <p class="muted">長い説明より、現場で何が起きるかを短いログで見せます。画像は後で差し込めるよう、余白だけ残しています。</p>
-          </div>
-          <div class="visual-space float" aria-label="アニメ風ビジュアルを配置する余白"></div>
-          <div class="hero-actions">
-            <a class="button" href="#entry">参加はこちら（条件あり）</a>
-          </div>
-        </aside>
-
-        <div class="feed">
-          <article class="post reveal">
-            <div class="post-head">
-              <div class="post-user">
-                <div class="avatar" aria-hidden="true"></div>
-                <div>
-                  <strong>Local Lab</strong>
-                  <span>子ども食堂の現場メモ</span>
-                </div>
-              </div>
-              <span class="post-time">週1ログ</span>
-            </div>
-            <div class="post-body">
-              <h3 class="post-title">「初めて来る人が不安」から、告知文を作る。</h3>
-              <p>現場の一言を拾い、AIで下書き。最後は地域の言葉に直して、SNS投稿と店頭案内にします。</p>
-              <div class="post-visual" aria-label="活動写真を配置する余白"></div>
-              <div class="tag-row">
-                <span class="mini-tag">子ども食堂</span>
-                <span class="mini-tag">告知文</span>
-                <span class="mini-tag">SNS投稿</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="post reveal">
-            <div class="post-head">
-              <div class="post-user">
-                <div class="avatar" aria-hidden="true"></div>
-                <div>
-                  <strong>AI制作部屋</strong>
-                  <span>LP / Canva / HTML</span>
-                </div>
-              </div>
-              <span class="post-time">制作ログ</span>
-            </div>
-            <div class="post-body">
-              <h3 class="post-title">AIに投げて終わりではなく、使える形まで直す。</h3>
-              <div class="lab-grid">
-                <div class="lab-card">
-                  <strong>プロンプト</strong>
-                  <span>誰に届けるか、何をしてほしいか、参加条件を先に決める。</span>
-                </div>
-                <div class="lab-card">
-                  <strong>生成物</strong>
-                  <span>見出し、LP構成、投稿文、フォーム文面を一気に出す。</span>
-                </div>
-                <div class="lab-card">
-                  <strong>改善</strong>
-                  <span>硬い表現を削り、地域の空気が伝わる言葉に直す。</span>
-                </div>
-                <div class="lab-card">
-                  <strong>公開</strong>
-                  <span>小さく出して、反応を見て、次の一手を決める。</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="post reveal">
-            <div class="post-head">
-              <div class="post-user">
-                <div class="avatar" aria-hidden="true"></div>
-                <div>
-                  <strong>実験コミュニティ</strong>
-                  <span>参加後の流れ</span>
-                </div>
-              </div>
-              <span class="post-time">4 steps</span>
-            </div>
-            <div class="post-body">
-              <h3 class="post-title">未完成で出す。仲間が直す。現場で使う。</h3>
-              <div class="timeline">
-                <div class="step">
-                  <strong>01</strong>
-                  <span>課題を投稿</span>
-                </div>
-                <div class="step">
-                  <strong>02</strong>
-                  <span>AIで試作</span>
-                </div>
-                <div class="step">
-                  <strong>03</strong>
-                  <span>仲間が改善</span>
-                </div>
-                <div class="step">
-                  <strong>04</strong>
-                  <span>現場で使う</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Fit: フィルターとBefore/Afterを統合 -->
-    <section class="section" id="fit">
+    <!-- Activities: 4領域をカード化 -->
+    <section class="section" id="activities">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow">Participation filter</p>
-            <h2>行動する人だけが、居心地よくなる設計です。</h2>
+            <p class="eyebrow">What happens inside</p>
+            <h2>夜に集まり、未来を試作する。</h2>
           </div>
-          <p class="section-note">受け身の人を増やすより、実験ログが増えることを優先します。</p>
+          <p class="section-note">説明より、空気で伝える。活動は4つの入口から始まります。</p>
         </div>
 
-        <div class="filter-grid">
-          <article class="card reveal">
-            <div class="card-inner">
-              <span class="pill">Before / After</span>
-              <h3>AIを触る人から、地域で動かす人へ。</h3>
-              <ul class="list">
-                <li>一人で悩むより、まず投稿する</li>
-                <li>AIの下書きを、現場の言葉に直す</li>
-                <li>告知、POP、LP、フォームを実際に使う</li>
-              </ul>
+        <div class="activity-grid">
+          <article class="activity-card reveal">
+            <img src="assets/secret-kids-cafe.jpg" alt="あたたかい子ども食堂の活動イメージ">
+            <div class="activity-copy">
+              <span class="pill">子ども食堂</span>
+              <h3>地域のぬくもりを、次の参加へ。</h3>
+              <p>ごはん、会話、告知。現場の一言を拾います。</p>
             </div>
           </article>
 
-          <div class="grid two">
-            <article class="card reveal">
-              <div class="card-inner">
-                <span class="pill">来てほしい人</span>
-                <ul class="list">
-                  <li>地域活動やお店づくりに関わりたい</li>
-                  <li>未完成でも制作物を出せる</li>
-                  <li>週1回、小さく手を動かせる</li>
-                </ul>
-              </div>
-            </article>
+          <article class="activity-card reveal">
+            <img src="assets/secret-ai-lab.jpg" alt="夜の研究所でAI制作をしているイメージ">
+            <div class="activity-copy">
+              <span class="pill">AI実験</span>
+              <h3>プロンプトから、使える形へ。</h3>
+              <p>LP、画像、文章。まず出して、直します。</p>
+            </div>
+          </article>
 
-            <article class="card reject reveal">
-              <div class="card-inner">
-                <span class="pill">向いていない人</span>
-                <ul class="list">
-                  <li>情報収集だけしたい</li>
-                  <li>批評だけで手を動かさない</li>
-                  <li>地域の事情に敬意を持てない</li>
-                </ul>
-              </div>
-            </article>
-          </div>
+          <article class="activity-card reveal">
+            <img src="assets/secret-meeting.jpg" alt="秘密基地で学び合う参加者たち">
+            <div class="activity-copy">
+              <span class="pill">学び場</span>
+              <h3>教えるより、いっしょに試す。</h3>
+              <p>知識は、手を動かすためにあります。</p>
+            </div>
+          </article>
+
+          <article class="activity-card reveal">
+            <img src="assets/secret-base-room.jpg" alt="地域DAOの秘密基地イメージ">
+            <div class="activity-copy">
+              <span class="pill">地域DAO</span>
+              <h3>つながりを、まちの力に。</h3>
+              <p>NinjaDAO的に、楽しく自走する文化へ。</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- CTA: 最後は短く、条件付きで締める -->
-    <section class="section" id="entry">
+    <!-- Cinema section: 世界観を切り替える -->
+    <section class="cinema">
+      <div class="cinema-media parallax" data-speed="0.11">
+        <img src="assets/secret-meeting.jpg" alt="未来を話し合う夜の地域DAO会議">
+      </div>
+      <div class="cinema-copy">
+        <div class="glass reveal">
+          <p class="eyebrow">The atmosphere</p>
+          <h2>未来は、対話から生まれる。</h2>
+          <p class="lead">アイデアが、行動に変わる夜。誰かの「やってみたい」が、まちの実験になる。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent logs: SNS投稿風 -->
+    <section class="section" id="logs">
+      <div class="container feed">
+        <div class="feed-intro reveal">
+          <p class="eyebrow">Recent activity</p>
+          <h2>最近の活動ログ。</h2>
+          <p class="lead">長い説明はいらない。ここでは、未完成の熱量をそのまま出します。</p>
+        </div>
+
+        <div class="post-list">
+          <article class="post reveal">
+            <div class="post-head">
+              <div class="post-user">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <strong>AI実験室</strong>
+                  <span>LP / Prompt / Prototype</span>
+                </div>
+              </div>
+              <span class="post-time">23:14</span>
+            </div>
+            <div class="post-body">
+              <h3>AIに投げて終わりじゃない。</h3>
+              <p>見出しを削る。CTAを強くする。地域の言葉に戻す。</p>
+              <div class="post-media">
+                <img src="assets/secret-ai-lab.jpg" alt="AI制作の活動ログ">
+              </div>
+              <div class="tag-row">
+                <span class="mini-tag">#AI</span>
+                <span class="mini-tag">#LP制作</span>
+                <span class="mini-tag">#実験</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="post reveal">
+            <div class="post-head">
+              <div class="post-user">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <strong>まちの食卓</strong>
+                  <span>子ども食堂 / Local</span>
+                </div>
+              </div>
+              <span class="post-time">Sun</span>
+            </div>
+            <div class="post-body">
+              <h3>あたたかい場所には、言葉がある。</h3>
+              <p>「また来たい」を、次の告知に変えていく。</p>
+              <div class="post-media">
+                <img src="assets/secret-kids-cafe.jpg" alt="子ども食堂の活動ログ">
+              </div>
+              <div class="tag-row">
+                <span class="mini-tag">#子ども食堂</span>
+                <span class="mini-tag">#地域活動</span>
+                <span class="mini-tag">#告知</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mind: 長文禁止の思想 -->
+    <section class="section" id="mind">
       <div class="container">
-        <div class="cta-panel reveal">
-          <p class="eyebrow">Join now</p>
-          <h2>初期メンバーとして、実験の型づくりから参加してください。</h2>
-          <p class="lead">参加後は「今やってみたいこと」か「地域で気になる課題」を1つ投稿してください。投稿できない場合、このコミュニティには合わない可能性があります。</p>
-          <div class="limit-line">
-            <span>初期募集</span>
-            <span>行動前提</span>
-            <span>見るだけ不可</span>
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Our code</p>
+            <h2>合言葉は、短い。</h2>
           </div>
-          <div class="hero-actions">
-            <a class="button" href="https://line.me/ti/g2/" target="_blank" rel="noreferrer">参加はこちら（条件あり）</a>
-            <a class="button secondary" href="#fit">条件をもう一度見る</a>
-          </div>
+        </div>
+
+        <div class="philosophy">
+          <div class="word-card reveal"><strong>学ぶだけでは<br>終わらせない。</strong></div>
+          <div class="word-card reveal"><strong>まず<br>やってみる。</strong></div>
+          <div class="word-card reveal"><strong>未完成で<br>持ち寄る。</strong></div>
+          <div class="word-card reveal"><strong>遊びながら<br>未来をつくる。</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA: 仲間感を最大化 -->
+    <section class="final-cta" id="entry">
+      <div class="final-media parallax" data-speed="0.14">
+        <img src="assets/secret-campfire.jpg" alt="焚き火を囲む挑戦者たちの秘密基地">
+      </div>
+      <div class="final-panel reveal">
+        <p class="eyebrow">Join the base</p>
+        <h2>今夜、仲間に入る。</h2>
+        <p class="lead">見るだけの人ではなく、未来をつくる側へ。小さな一歩を持ってきてください。</p>
+        <div class="rules">
+          <span>行動前提</span>
+          <span>未完成歓迎</span>
+          <span>批評だけNG</span>
+        </div>
+        <div class="actions">
+          <a class="button" href="https://line.me/ti/g2/" target="_blank" rel="noreferrer">参加はこちら（条件あり）</a>
+          <a class="button secondary" href="#top">もう一度見る</a>
         </div>
       </div>
     </section>
   </div>
 
   <script>
-    // 軽いフェードインだけに絞り、スクロール体験を邪魔しない。
     const revealItems = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -951,12 +873,21 @@
 
     revealItems.forEach((item) => observer.observe(item));
 
-    // CTA計測用の最小フック。必要になったらGA4やLINE計測へ接続する。
-    document.querySelectorAll(".button").forEach((button) => {
-      button.addEventListener("click", () => {
-        button.dataset.clicked = "true";
+    const parallaxItems = document.querySelectorAll(".parallax img");
+    const updateParallax = () => {
+      const viewport = window.innerHeight || 1;
+      parallaxItems.forEach((img) => {
+        const parent = img.parentElement;
+        const rect = parent.getBoundingClientRect();
+        const speed = Number(parent.dataset.speed || 0.12);
+        const progress = (rect.top + rect.height / 2 - viewport / 2) / viewport;
+        img.style.transform = `scale(1.07) translateY(${progress * speed * -80}px)`;
       });
-    });
+    };
+
+    updateParallax();
+    window.addEventListener("scroll", updateParallax, { passive: true });
+    window.addEventListener("resize", updateParallax);
   </script>
 </body>
 </html>
